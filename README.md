@@ -1,7 +1,5 @@
-To remove all jobs (old captures), run `redis-cli flushall`
-
-## LipReader
-LipReader application built using electron
+## Reactron Boilerplate
+React boilerplate application built using electron
 ### Prerequisites
 - [node](https://nodejs.org) >= 6.10 (check if installed and version `node -v`)
 - [gulp](https://www.npmjs.com/package/gulp) >= 3.9 (check if installed and version `gulp -v`)
