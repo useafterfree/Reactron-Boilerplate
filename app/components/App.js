@@ -1,23 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
-import ListSubheader from '@material-ui/core/ListSubheader';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import Button from '@material-ui/core/Button';
-
 import socketIOClient from 'socket.io-client';
 
 /* Layout */
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import styles from '../styles/styles';
-
-// Required for clicks
-injectTapEventPlugin();
-
 
 class App extends Component {
   constructor(props) {
@@ -36,14 +22,16 @@ class App extends Component {
     });
 
     this.socket = null;
+
+
     this.state = {
-      endpoint: 'http://127.0.0.1:3000',
-      // initialState: this.loadInitialState()
+      endpoint: 'http://127.0.0.1:3000'
     };
   }
 
   componentDidMount() {
-    this.socket = socketIOClient(this.state.endpoint);
+    const { endpoint } = this.state;
+    this.socket = socketIOClient(endpoint);
     this.socket.on('connect', () => {});
   }
 
@@ -51,27 +39,17 @@ class App extends Component {
 
   }
 
+  getTemplate() {
+    return (
+      <div id="approot" style={styles.app} />
+    );
+  }
+
   render() {
     return (
       <div>
         {this.getTemplate()}
       </div>
-    );
-  }
-
-  getTemplate() {
-    const {
-      // records
-    } = this.props;
-
-    const classes = {};
-
-    const {
-      initialState,
-    } = this.state;
-
-    return (
-      <div id="approot" style={styles.app}></div>
     );
   }
 }

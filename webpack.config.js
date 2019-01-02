@@ -1,17 +1,17 @@
 // Copyright (C) 2017 Sony Electronics Inc.
 // All rights, including trade secret rights, reserved.
 
-import autoprefixer from 'autoprefixer';
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import HtmlWebpackHarddiskPlugin from 'html-webpack-harddisk-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
-import WriteFilePlugin from 'write-file-webpack-plugin';
-import config from './gulp/config';
-import ProgressBarPlugin from 'progress-bar-webpack-plugin';
-import gutil from 'gulp-util';
-import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
-import { exec } from 'child_process';
+const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const gutil = require('gulp-util');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
+const config = require('./gulp/config');
 
 const {
   webpack: {
@@ -32,7 +32,7 @@ const getEntry = () => {
 
 const getPlugins = () => {
   const versionText = require('./package.json').version;
-  const versionLong = `whatever`;
+  const versionLong = 'whatever';
 
   const plugins = [
     new webpack.ProvidePlugin({

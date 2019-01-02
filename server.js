@@ -1,9 +1,10 @@
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+const express = require('express');
 
-var fs = require("fs");
+const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
+const fs = require('fs');
 
 const debug = require('ndebug')('server');
 
@@ -11,33 +12,29 @@ const sockets = [];
 
 
 // Make sure output exists
-if (!fs.existsSync("dist")) {
-  fs.mkdirSync("dist");
+if (!fs.existsSync('dist')) {
+  fs.mkdirSync('dist');
 }
 
-app.use('/public', express.static(__dirname + '/public'));
+app.use('/public', express.static(`${__dirname}/public`));
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/public/index.html');
+app.get('/', function (req, res) {
+  res.sendFile(`${__dirname}/public/index.html`);
 });
 
-http.listen(3000, function() {
+http.listen(3000, function () {
   debug('listening on *:3000');
 });
 
 io.on('connection', (socket) => {
-  //prompt web UI to send status when camera connects
+  // prompt web UI to send status when client connects
   sockets.push(socket);
   socket.broadcast.emit('new-connection');
 
   socket.on('disconnect', () => {
-    var index = sockets.indexOf(socket);
+    const index = sockets.indexOf(socket);
     if (index > -1) {
-        sockets.splice(index, 1);
+      sockets.splice(index, 1);
     }
-  });
-
-  socket.on('something', (msg) => {
-    debug('something');
   });
 });
