@@ -46,7 +46,7 @@
     "html-webpack-plugin": "^2.30.1",
     "kue": "^0.11.6",
     "kue-ui-express": "^1.0.2",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.19",
     "mkdirp": "^0.5.1",
     "moment": "^2.14.1",
     "ndebug": "bo01ean/ndebug",
