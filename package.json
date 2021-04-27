@@ -62,7 +62,7 @@
     "react-redux": "^5.0.6",
     "recordrtc": "^5.4.5",
     "recursive-readdir": "^2.0.0",
-    "redis": "^2.8.0",
+    "redis": "^3.1.1",
     "reds": "^1.0.0",
     "redux": "^3.3.1",
     "redux-thunk": "^2.1.0",
