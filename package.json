@@ -48,7 +48,7 @@
     "kue-ui-express": "^1.0.2",
     "lodash": "^4.17.13",
     "mkdirp": "^0.5.1",
-    "moment": "^2.14.1",
+    "moment": "^2.29.4",
     "ndebug": "bo01ean/ndebug",
     "postcss-loader": "^2.0.8",
     "progress-bar-webpack-plugin": "^1.10.0",
